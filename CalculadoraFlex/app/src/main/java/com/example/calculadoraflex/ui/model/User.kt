@@ -1,4 +1,4 @@
-package com.example.calculadoraflex.model
+package com.example.calculadoraflex.ui.model
 
 data class User (
     val nome: String = "",
