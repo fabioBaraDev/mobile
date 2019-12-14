@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.example.calculadoraflex.R
 import com.example.calculadoraflex.ui.login.LoginActivity
 import com.example.calculadoraflex.ui.model.CarData
@@ -25,25 +26,32 @@ class FormActivity : AppCompatActivity() {
     private val firebaseReferenceNode = "CarData"
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_form)
-        mAuth = FirebaseAuth.getInstance()
-        userId = FirebaseAuth.getInstance().currentUser?.uid ?: ""
-        listenerFirebaseRealtime()
-        etGasPrice.addTextChangedListener(DecimalTextWatcher(etGasPrice))
-        etEthanolPrice.addTextChangedListener(DecimalTextWatcher(etEthanolPrice))
-        etGasAverage.addTextChangedListener(DecimalTextWatcher(etGasAverage, 1))
-        etEthanolAverage.addTextChangedListener(DecimalTextWatcher(etEthanolAverage, 1))
-        btCalculate.setOnClickListener {
-            saveCarData()
-            val proximatela = Intent(this@FormActivity, ResultActivity::class.java)
-            proximatela.putExtra("GAS_PRICE", etGasPrice.text.toString().toDouble())
-            proximatela.putExtra("ETHANOL_PRICE", etEthanolPrice.text.toString().toDouble())
-            proximatela.putExtra("GAS_AVERAGE", etGasAverage.text.toString().toDouble())
-            proximatela.putExtra("ETHANOL_AVERAGE",
-                etEthanolAverage.text.toString().toDouble())
-            startActivity(proximatela)
+        try {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_form)
+            mAuth = FirebaseAuth.getInstance()
+            userId = FirebaseAuth.getInstance().currentUser?.uid ?: ""
+            listenerFirebaseRealtime()
+            etGasPrice.addTextChangedListener(DecimalTextWatcher(etGasPrice))
+            etEthanolPrice.addTextChangedListener(DecimalTextWatcher(etEthanolPrice))
+            etGasAverage.addTextChangedListener(DecimalTextWatcher(etGasAverage, 1))
+            etEthanolAverage.addTextChangedListener(DecimalTextWatcher(etEthanolAverage, 1))
+            btCalculate.setOnClickListener {
+                saveCarData()
+                val proximatela = Intent(this@FormActivity, ResultActivity::class.java)
+                proximatela.putExtra("GAS_PRICE", etGasPrice.text.toString().toDouble())
+                proximatela.putExtra("ETHANOL_PRICE", etEthanolPrice.text.toString().toDouble())
+                proximatela.putExtra("GAS_AVERAGE", etGasAverage.text.toString().toDouble())
+                proximatela.putExtra("ETHANOL_AVERAGE",
+                    etEthanolAverage.text.toString().toDouble())
+                startActivity(proximatela)
+            }
+        }catch (e: Exception){
+            Toast.makeText(this, "Dados de entrada invalidos",
+                Toast.LENGTH_SHORT).show()
+
         }
+
     }
 
     private fun saveCarData() {
