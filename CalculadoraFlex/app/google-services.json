@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "72261323700",
+    "firebase_url": "https://calculadoraflex-bara.firebaseio.com",
+    "project_id": "calculadoraflex-bara",
+    "storage_bucket": "calculadoraflex-bara.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:72261323700:android:87403f1a532bc48db1c0e1",
+        "android_client_info": {
+          "package_name": "com.example.calculadoraflex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "72261323700-knvgevtblmg52a4fjoc5fvdvdaplvl9d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.calculadoraflex",
+            "certificate_hash": "80d7aba3af0f29d89e62871ba62e18dd32e7bd9f"
+          }
+        },
+        {
+          "client_id": "72261323700-je5upf4paql12ksop9j0e8598cjhm809.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCmgdFOsI_oVVRGCZoCpEsVMmo4NBaD8mg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "72261323700-je5upf4paql12ksop9j0e8598cjhm809.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
